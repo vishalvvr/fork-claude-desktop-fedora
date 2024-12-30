@@ -6,6 +6,8 @@ If you run into an issue with this build script, make an issue here. Don't bug A
 
 This project was inspired by [k3d3's claude-desktop-linux-flake](https://github.com/k3d3/claude-desktop-linux-flake) and their [Reddit post](https://www.reddit.com/r/ClaudeAI/comments/1hgsmpq/i_successfully_ran_claude_desktop_natively_on/) about running Claude Desktop natively on Linux. Their work provided valuable insights into the application's structure and the native bindings implementation.
 
+And now by me, via [Aaddrick's claude-desktop-debian](https://github.com/aaddrick/claude-desktop-debian), modified to work for Fedora 41.
+
 Supports MCP!
 ![image](https://github.com/user-attachments/assets/93080028-6f71-48bd-8e59-5149d148cd45)
 
@@ -17,32 +19,36 @@ Supports the Tray menu! (Screenshot of running on KDE)
 
 # Installation Options
 
-## 1. Debian Package (New!)
+## 1. Fedora Package (New!)
 
 For Debian-based distributions (Debian, Ubuntu, Linux Mint, MX Linux, etc.), you can build and install Claude Desktop using the provided build script:
 
 ```bash
 # Clone this repository
-git clone https://github.com/yourusername/claude-desktop-linux.git
-cd claude-desktop-linux
+git clone https://github.com/bsneed/claude-desktop-fedora.git
+cd claude-desktop-fedora
 
 # Build the package
-sudo ./build-deb.sh
-sudo dpkg -i build/electron-app/claude-desktop_0.7.7_amd64.deb
+sudo ./build-fedora.sh
+sudo dnf install build/electron-app/x86_64/claude-desktop_0.7.7-1.fc41.x86_64.rpm
 
 # The script will automatically:
 # - Check for and install required dependencies
 # - Download and extract resources from the Windows version
-# - Create a proper Debian package
+# - Create a proper Fedora package
 # - Guide you through installation
 ```
 
 Requirements:
-- Any Debian-based Linux distribution
+- Fedora 41 Linux distribution
 - Node.js >= 12.0.0 and npm
 - Root/sudo access for dependency installation
 
-## 2. NixOS Implementation
+## 2. Debian Package (New!)
+
+For Debian users, please refer to [Aaddrick's claude-desktop-debian](https://github.com/aaddrick/claude-desktop-debian) repository.  Their implementation is specifically designed for Debian and provides the original build script that inspired THIS project.
+
+## 3. NixOS Implementation
 
 For NixOS users, please refer to [k3d3's claude-desktop-linux-flake](https://github.com/k3d3/claude-desktop-linux-flake) repository. Their implementation is specifically designed for NixOS and provides the original Nix flake that inspired this project.
 
